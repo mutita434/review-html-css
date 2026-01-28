@@ -16,19 +16,18 @@
 
   <script>
     // 🔹 Paste your Firebase config here
-    const firebaseConfig = {
-      apiKey: "YOUR_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "SENDER_ID",
-      appId: "APP_ID"
-    };
-
+   const firebaseConfig = {
+  apiKey: "AIzaSyBZTTYQbiVRbMbsdsXKV4UTg4e4qwQ1Cx4",
+  authDomain: "my-web-project-60103.firebaseapp.com",
+  projectId: "my-web-project-60103",
+  storageBucket: "my-web-project-60103.firebasestorage.app",
+  messagingSenderId: "432163230595",
+  appId: "1:432163230595:web:eecc331ab96ad010b65cb6",
+  measurementId: "G-N7BVJ5REPJ"
+};
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
+   const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
     // Handle form submit
     const form = document.getElementById("userForm");
     form.addEventListener("submit", function(e) {
