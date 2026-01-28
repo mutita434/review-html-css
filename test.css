@@ -1,0 +1,21 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+#wrapper {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* header{
+    height: 100px;
+    background: url(images/logo.jpg) no-repeat right center;
+} */
+ main{
+     display: flex;
+     flex-direction: row;
+ }
+  #left, #right{
+    background-color: blue;
+    width: 524px;
+    min-height: 350px;
+  }

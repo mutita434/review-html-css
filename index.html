@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Form Example</title>
+  <!-- Firebase libraries -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <h1>User Form</h1>
+  <form id="userForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // 🔹 Paste your Firebase config here
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Handle form submit
+    const form = document.getElementById("userForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = form.name.value;
+      const email = form.email.value;
+
+      db.collection("users").add({ name, email })
+        .then(() => {
+          alert("Saved successfully!");
+          form.reset();
+        })
+        .catch((err) => alert("Error: " + err));
+    });
+  </script>
+</body>
+</html>
